@@ -11,4 +11,4 @@ class User(models.Model):
     ]
     Acception=models.CharField(max_length=3,choices=acception_status,default='YES')
     def __str__(self):
-        return  self.username
+        return  self.UserName
