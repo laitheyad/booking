@@ -1,0 +1,226 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="css/Registration.css?v=1.0" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand right ml-5" href="#"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/University_of_Jordan_Logo.svg/808px-University_of_Jordan_Logo.svg.png" alt="loho" /> JU Events
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNav">
+            <ul class="navbar-nav ml-5">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink='/'>Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='reservation'>Create Evenet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='events'>Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link left justify-content-start" routerLink='auth'>Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='signup'>Sign Up</a>
+                </li>
+            </ul>
+        </div>
+
+
+    </nav>
+    <div class="row">
+        <div class="col-6 col-md-4"></div>
+        <div class="col-6 col-md-4">
+            <form method="post" action="{% url 'system:register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group required">
+                    <label>User Name</label>
+                    {{ form.UserName }}
+{#                    <input class="form-control required" id="username" placeholder="User Name" formControlName="UserName">#}
+                    <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is Empty.</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Email address</label>
+                    {{ form.Email }}
+{#                    <input type="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" formControlName="Email">#}
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email address.</label>
+                </div>
+
+                <div formGroupName="Passwords">
+                    <div class="form-group required">
+
+                        <label>Password</label>
+                        {{ form.Password }}
+{#                        <input type="password" id="password" class="form-control" placeholder="Password" formControlName="Password">#}
+                        <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is Empty.</label>
+                        <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum 8 characters required.</label>
+
+                    </div>
+
+                    <div class="form-group required">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" placeholder="Password" formControlName="ConfirmPassword">
+                        <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is Empty.</label>
+                        <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    {{ form.PhoneNumber }}
+{#                    <input class="form-control required" id="phone" placeholder="Phone number" formControlName="PhoneNumber">#}
+                    <label class="text-danger" *ngIf="service.formModel.get('PhoneNumber').touched && service.formModel.get('PhoneNumber').errors?.required">This field is Empty.</label>
+                    <label class="text-danger" *ngIf="service.formModel.get('PhoneNumber').touched && service.formModel.get('PhoneNumber').errors?.minlength">Please Enter Your Correct Phone Number</label>
+                </div>
+                <br>
+
+{##}
+{#                <label>الجهة الباعثة</label>#}
+{#                <br>#}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" name="Identifier" type="radio" value="موئسسات حكومية (القطاع العام)" checked formControlName="Identifier">#}
+{#                    <label class="form-check-label">#}
+{#                موئسسات حكومية (القطاع العام)#}
+{#              </label>#}
+{#                </div>#}
+{##}
+{##}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" name="Identifier" type="radio" value="موئسسات القطاع الخاص" formControlName="Identifier">#}
+{#                    <label class="form-check-label">#}
+{#                موئسسات القطاع الخاص#}
+{#              </label>#}
+{#                </div>#}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" name="Identifier" type="radio" value="أتحاد الطلبة" formControlName="Identifier">#}
+{#                    <label class="form-check-label">#}
+{#                أتحاد الطلبة#}
+{#              </label>#}
+{#                </div>#}
+{##}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" name="Identifier" type="radio" value="منظمات عالمية" formControlName="Identifier">#}
+{#                    <label class="form-check-label">#}
+{#                منظمات عالمية#}
+{#              </label>#}
+{#                </div>#}
+{##}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" name="Identifier" type="radio" value="منظمات محلية" formControlName="Identifier">#}
+{#                    <label class="form-check-label">#}
+{#                منظمات محلية#}
+{#              </label>#}
+{#                </div>#}
+{##}
+{##}
+{#                <div class="form-check">#}
+{#                    <input class="form-check-input" name="Identifier" type="radio" value="هيئات و موئسسات داخل الجامعة" formControlName="Identifier">#}
+{#                    <label class="form-check-label">#}
+{#                هيئات و موئسسات داخل الجامعة#}
+{#              </label>#}
+{#                </div>#}
+{##}
+
+
+                <!-- <br>
+            <re-captcha (resolved)="resolved($event)" siteKey="https://www.google.com/recaptcha/api.js?onload=reCaptchaLoad&render=explicit${lang}"></re-captcha>
+      
+      
+      -->
+
+
+                <div class="form-group form-check">
+                    <br>
+                    {{ form.Acception }}
+{#                    <input type="checkbox" id="sure" class="form-check-input" formControlName="Acception" value="YES">#}
+                    <label class="form-check-label" for="exampleCheck1">Are you sure about your data?</label>
+                </div>
+
+
+                <!--      <button (click)="onSubmit()" class="btn button1">Sign up</button>-->
+
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-lg btn-block button1" onclick="getData()"><p class="white">Sign Up</p></button>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+            </form>
+{#<script>#}
+{#   #}
+{#    function getData(){#}
+{#         opts={#}
+{#             UserName:document.getElementById('username').value,#}
+{#             Email:document.getElementById('email').value,#}
+{#             Password:document.getElementById('password').value,#}
+{#             PhoneNumber:document.getElementById('phone').value,#}
+{#Acception:document.getElementById('sure').checked,#}
+{#         }#}
+{#         console.log(opts);#}
+
+{#         fetch('http://127.0.0.1:8000/users/', {#}
+{#     method: 'post',#}
+{#     body: JSON.stringify(opts)#}
+{#   }).then(function(response) {#}
+{#     return response.json();#}
+{#   }).then(function(data) {#}
+{#     ChromeSamples.log('Created Gist:', data.html_url);#}
+{#   });#}
+{#    }#}
+{#</script>#}
+
+
+        </div>
+        <div class="col-6 col-md-4"></div>
+    </div>
+
+    <!--<div *ngIf="!formVisible" class="container-fluid">-->
+
+
+    <!--  <h1  class="green">-->
+    <!--    Thank you for registering your Account!-->
+    <!--  </h1>-->
+
+    <!--  <h1  class="green">-->
+    <!--    Please follow the instructions we just emailed to you-->
+    <!--  </h1>-->
+
+
+
+    <!--</div>-->
+
+
+
+
+ 
+{#    <script src="js/scripts.js"></script>#}
+</body>
+
+</html>

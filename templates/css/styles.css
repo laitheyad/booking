@@ -1,0 +1,82 @@
+.logo {
+    width: 60px;
+    height: 68px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar {
+    align-content: center !important;
+}
+
+.nav-link {
+    color: #72D145 !important;
+    font-family: Rockwell, fantasy !important;
+    ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.navbar-brand {
+    font-family: Rockwell, fantasy !important;
+    float: right !important;
+    align-content: flex-end !important;
+    text-transform: uppercase;
+}
+
+.nav-item {
+    padding: 10px !important;
+}
+
+a:hover {
+    color: black !important;
+}
+
+.justify-content-start {
+    float: left !important;
+    justify-content: left !important;
+    justify-self: left !important;
+}
+
+
+/*------------  Div  -------------*/
+
+@import "~bootstrap/dist/css/bootstrap.css";
+.maindiv {
+    position: absolute;
+    width: 721px;
+    height: 76px;
+    /*left: 90px;*/
+    top: 250px;
+    font-family: Rockwell;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 52px;
+    color: #000000;
+}
+
+button.btn {
+    position: absolute;
+    width: 204px;
+    height: 56px;
+    background: #36AA00;
+    border-radius: 25px;
+}
+
+.white {
+    color: #FFFFFF !important;
+}
+
+.white button a {
+    font-family: Rockwell;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #FFFFFF;
+}

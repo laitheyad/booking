@@ -1,0 +1,112 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+.logo {
+    width: 60px;
+    height: 68px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar {
+    align-content: center !important;
+}
+
+.nav-link {
+    color: #72D145 !important;
+    font-family: Rockwell, fantasy !important;
+    ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.navbar-brand {
+    font-family: Rockwell, fantasy !important;
+    float: right !important;
+    align-content: flex-end !important;
+    text-transform: uppercase;
+}
+
+.nav-item {
+    padding: 10px !important;
+}
+
+a:hover {
+    color: black !important;
+}
+
+.justify-content-start {
+    float: left !important;
+    justify-content: left !important;
+    justify-self: left !important;
+}
+
+
+/*------------*/
+
+.pol {
+    padding: 3% !important;
+}
+
+.to-left {
+    margin-right: 30px !important;
+    font-size: 36px;
+}
+
+.testarea-customize {
+    /*event name customize */
+    background-color: rgba(140, 140, 140, 0.1) !important;
+    color: black;
+    height: 75px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.testdis-customize {
+    /*event description customize */
+    background-color: rgba(140, 140, 140, 0.1) !important;
+    color: black;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+label {
+    color: black;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.pol1 {
+    padding: 1.2%;
+}
+
+.button1 {
+    background-color: #72D145 !important;
+    color: aliceblue;
+    font-size: 18px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    border: white;
+    border-radius: 10px;
+    align-items: flex-end;
+    height: 70px;
+    font-size: 36px;
+}
+
+.button2 {
+    background-color: red !important;
+    color: aliceblue;
+    font-size: 18px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    border: white;
+    border-radius: 10px;
+    align-items: flex-end;
+}

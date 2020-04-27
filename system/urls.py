@@ -19,8 +19,11 @@ from rest_framework import routers
 from system.views import *
 from django.contrib import admin
 from django.urls import path, include
+app_name='system'
 urlpatterns = [
     path('admin/', admin.site.urls),
-url(r'',include('system.urls'))
+    url(r'^users/$', UserRegister, name='login'),
+    url(r'', UserRegister, name='register'),
+    url(r'Home/', home_view.as_view(), name='home'),
 
 ]

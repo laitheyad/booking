@@ -6,8 +6,8 @@ class User(models.Model):
     Password=models.CharField(max_length=500)
     PhoneNumber=models.IntegerField(max_length=10)
     acception_status=[
-        ('YES','YES'),
-        ('NO','NO')
+        ('true','true'),
+        ('false','false')
     ]
     Acception=models.CharField(max_length=3,choices=acception_status,default='YES')
     def __str__(self):
